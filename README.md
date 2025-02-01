@@ -7,6 +7,7 @@ What is 7 Days of AI Coding, you ask? It's an opportunity to learn AI coding in 
 
 You can see what I did for each day below 👇
 
-Day1:
+Day1: [AI Genrated Landing Page](https://thebimsider.github.io/7-Days-of-AI-Coding/Day1)   
+
 
 
