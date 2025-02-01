@@ -1,5 +1,5 @@
 # 7-Days-of-AI-Coding
-A place to store my projects from # #7DaysofAICoding from [100 School](https://www.100school.com/)
+A place to store my projects from **#7DaysofAICoding** from [100 School](https://www.100school.com/)
 
 This repository is for my adventures with the [7 Days of AI Coding Challenge](https://www.100school.com/atomic-challenges/7daysofaicoding)
 
