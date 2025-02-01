@@ -1,4 +1,4 @@
-![7DoAIC](https://github.com/user-attachments/assets/d5b5480a-354b-4579-ab35-c222b5f7a6da)
+![7DoAIC](https://github.com/user-attachments/assets/d5b5480a-354b-4579-ab35-c222b5f7a6da)](https://www.100school.com/atomic-challenges/7daysofaicoding)
 # 7-Days-of-AI-Coding
 A place to store my projects from **#7DaysofAICoding** from [100 School](https://www.100school.com/)
 
