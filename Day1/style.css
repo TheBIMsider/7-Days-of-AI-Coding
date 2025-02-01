@@ -4,8 +4,7 @@ body {
   font-family: Arial, sans-serif;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   background-color: #ffffff;
 }
 
@@ -13,6 +12,11 @@ body {
   text-align: center;
   padding: 20px;
   max-width: 600px;
+  margin: auto;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 h1 {
@@ -20,6 +24,13 @@ h1 {
   color: #000;
   font-weight: bold;
   margin-bottom: 10px;
+}
+
+.logo {
+  max-width: 300px;
+  height: auto;
+  margin: 20px auto;
+  display: block;
 }
 
 h2 {
@@ -64,6 +75,51 @@ button:hover {
   background-color: #90ee90;
 }
 
+/* Footer Styles */
+footer {
+  width: 100%;
+  padding: 20px 0;
+  background-color: #f8f9fa;
+  margin-top: auto;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.social-button {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.social-button:hover {
+  transform: scale(1.1);
+}
+
+.social-button img {
+  width: 40px;
+  height: 40px;
+}
+
+.footer-credits {
+  text-align: center;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.footer-credits a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.footer-credits a:hover {
+  text-decoration: underline;
+}
+
 /* Responsive design */
 @media (max-width: 480px) {
   .container {
@@ -89,5 +145,14 @@ button:hover {
 
   button {
     width: 100%;
+  }
+
+  .social-media {
+    gap: 10px;
+  }
+
+  .social-button img {
+    width: 35px;
+    height: 35px;
   }
 }
