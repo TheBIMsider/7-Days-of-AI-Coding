@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brick by Brick</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Brick by Brick</h1>
+      <h2>A game of buzzwords, bricks, and brainpower!</h2>
+
+      <div class="instructions">
+        <p>
+          Guess industry buzzwords one letter at a time. But beware - 6 wrong
+          guesses will complete your house and end the game!
+        </p>
+      </div>
+
+      <div class="game-controls">
+        <button id="newGameBtn">New Game</button>
+        <select id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+        <button id="helpBtn">Help</button>
+        <button id="hintBtn">Get Hint</button>
+      </div>
+
+      <div class="game-stats">
+        <div>Score: <span id="score">0</span></div>
+        <div>High Score: <span id="highScore">0</span></div>
+        <div>Bricks: <span id="lives">6</span></div>
+      </div>
+
+      <div class="game-area">
+        <div id="building"></div>
+        <div id="word"></div>
+        <div id="guesses"></div>
+      </div>
+
+      <div id="keyboard"></div>
+
+      <div id="helpModal" class="modal">
+        <div class="modal-content">
+          <h3>How to Play</h3>
+          <p>
+            1. Guess BIM, AECO, or AI buzzwords one letter at a time. Solve the
+            word before the house is fully built!
+          </p>
+          <p>
+            2. Each wrong guess adds a piece to your house. After six pieces,
+            the house is complete, and the game ends.
+          </p>
+          <p>3. Use hints wisely—each hint adds a piece to your house!</p>
+          <p>4. Complete words to earn points and climb the leaderboard.</p>
+          <p>
+            5. Can you guess all the words with zero mistakes? Only true masters
+            build the perfect game!
+          </p>
+          <ul>
+            <li>Easy: 1 point</li>
+            <li>Medium: 2 points</li>
+            <li>Hard: 3 points</li>
+          </ul>
+          <button id="closeHelp">Close</button>
+        </div>
+      </div>
+    </div>
+    <script src="game.js"></script>
+  </body>
+</html>
