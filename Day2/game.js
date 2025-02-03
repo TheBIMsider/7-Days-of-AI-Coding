@@ -106,6 +106,18 @@ class JargonJenga {
       this.difficulty = e.target.value;
       this.startNewGame();
     });
+
+    // Add keyboard event listener for physical keyboard input
+    document.addEventListener('keydown', (e) => {
+      const letter = e.key.toUpperCase();
+      // Check if it's a letter key (A-Z)
+      if (/^[A-Z]$/.test(letter)) {
+        // Don't handle already guessed letters
+        if (!this.guessedLetters.has(letter)) {
+          this.handleGuess(letter);
+        }
+      }
+    });
   }
 
   createKeyboard() {
@@ -152,7 +164,8 @@ class JargonJenga {
     if (this.guessedLetters.has(letter)) return;
 
     this.guessedLetters.add(letter);
-    const button = Array.from(this.keyboardDiv.children).find(
+    // Fix the button selection
+    const button = Array.from(document.querySelectorAll('.key')).find(
       (btn) => btn.textContent === letter
     );
     if (button) {
@@ -268,8 +281,9 @@ class JargonJenga {
   }
 
   resetKeyboard() {
-    Array.from(this.keyboardDiv.children).forEach((button) => {
-      button.classList.remove('used');
+    const keys = document.querySelectorAll('.key');
+    keys.forEach((key) => {
+      key.classList.remove('used');
     });
   }
 }
