@@ -1,0 +1,657 @@
+/* ==========================================================================
+  CSS Custom Properties (Variables)
+  These variables make it easy to maintain consistent colors, spacing, and styling
+  throughout the application. Change these to update the theme globally.
+   ========================================================================== */
+:root {
+  /* Color Scheme
+      Primary colors are used for main actions and key elements
+      Secondary colors are used for supporting elements
+       Accent colors are used for highlights and attention-grabbing elements */
+  --color-primary: #3498db; /* Main blue color */
+  --color-primary-dark: #2980b9; /* Darker blue for hover states */
+  --color-secondary: #2ecc71; /* Green for success states */
+  --color-secondary-dark: #27ae60; /* Darker green for hover */
+  --color-accent: #e74c3c; /* Red for important elements */
+  --color-accent-dark: #c0392b; /* Darker red for hover */
+  --color-help: #9b59b6; /* Purple for help elements */
+  --color-help-dark: #8e44ad; /* Darker purple for hover */
+  --color-text: #2c3e50; /* Main text color */
+  --color-text-light: #34495e; /* Secondary text color */
+  --color-keyboard: #95a5a6; /* Keyboard button color */
+  --color-keyboard-dark: #7f8c8d; /* Keyboard hover state */
+  --color-keyboard-disabled: #bdc3c7; /* Disabled keyboard keys */
+  --color-background: #f0f0f0; /* Page background */
+  --color-background-dark: #e0e0e0; /* Secondary background */
+
+  /* Spacing Scale
+      Using clamp() for responsive spacing that scales with viewport size
+       but stays within reasonable limits */
+  --spacing-xs: clamp(4px, 1vw, 6px); /* Extra small spacing */
+  --spacing-sm: clamp(8px, 2vw, 12px); /* Small spacing */
+  --spacing-md: clamp(15px, 3vh, 25px); /* Medium spacing */
+  --spacing-lg: clamp(20px, 4vh, 35px); /* Large spacing */
+  --spacing-xl: clamp(25px, 5vh, 45px); /* Extra large spacing */
+
+  /* Typography Scale
+       Font sizes that scale with viewport size while maintaining readability */
+  --font-size-base: 16px; /* Base font size */
+  --font-size-sm: clamp(0.9rem, 2vw, 1.1rem); /* Small text */
+  --font-size-md: clamp(1.1rem, 2.5vw, 1.4rem); /* Medium text */
+  --font-size-lg: clamp(1.5rem, 4vw, 2rem); /* Large text */
+  --font-size-xl: clamp(2.5rem, 5vw, 4.5rem); /* Extra large text */
+
+  /* Border Radius
+       Consistent rounded corners throughout the application */
+  --border-radius-sm: 6px; /* Small radius */
+  --border-radius-md: 8px; /* Medium radius */
+  --border-radius-lg: 15px; /* Large radius */
+
+  /* Transitions
+       Smooth animations for interactive elements */
+  --transition-default: all 0.3s ease; /* Standard transition */
+  --transition-fast: all 0.2s ease; /* Quick transition */
+}
+
+/* ==========================================================================
+    Reset and Base Styles
+    Ensures consistent starting point across browsers
+     ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--font-size-base);
+}
+
+body {
+  /* Gradient background for visual interest */
+  background: linear-gradient(
+    145deg,
+    var(--color-background) 0%,
+    var(--color-background-dark) 100%
+  );
+  min-height: 100vh;
+  padding: 20px 0;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--color-text);
+}
+
+/* ==========================================================================
+    Layout Components
+    Main structural elements of the game
+     ========================================================================== */
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Typography Styles */
+h1 {
+  color: var(--color-accent-dark);
+  font-size: var(--font-size-xl);
+  font-weight: 800;
+  margin-bottom: var(--spacing-md);
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: var(--color-text-light);
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  margin-bottom: var(--spacing-lg);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 0 10px;
+}
+
+/* ==========================================================================
+    Game Interface Components
+    Individual elements that make up the game interface
+     ========================================================================== */
+/* Instructions Panel */
+.instructions {
+  margin: 0 auto var(--spacing-xl);
+  padding: var(--spacing-md);
+  background-color: #ffffff;
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 700px;
+}
+
+.instructions p {
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.instructions p:last-child {
+  margin-bottom: 0;
+}
+
+/* Game Controls Section */
+.game-controls {
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: 0 10px;
+}
+
+/* Button and Select Input Styles */
+button,
+select {
+  padding: var(--spacing-sm) calc(var(--spacing-sm) * 2);
+  border: none;
+  border-radius: var(--border-radius-md);
+  color: white;
+  cursor: pointer;
+  transition: var(--transition-default);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  min-width: clamp(90px, 20vw, 120px);
+}
+
+/* Control Button Color Variants */
+#newGameBtn {
+  background-color: var(--color-primary);
+}
+
+#newGameBtn:hover {
+  background-color: var(--color-primary-dark);
+}
+
+select {
+  background-color: var(--color-secondary);
+}
+
+select:hover {
+  background-color: var(--color-secondary-dark);
+}
+
+#helpBtn {
+  background-color: var(--color-help);
+}
+
+#helpBtn:hover {
+  background-color: var(--color-help-dark);
+}
+
+#hintBtn {
+  background-color: var(--color-accent);
+}
+
+#hintBtn:hover {
+  background-color: var(--color-accent-dark);
+}
+
+/* Game Statistics Display */
+.game-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(20px, 4vw, 50px);
+  margin-bottom: var(--spacing-xl);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  padding: 0 10px;
+}
+
+/* ==========================================================================
+    House Building Visualization
+    Styles for the house that gets built with wrong guesses
+     ========================================================================== */
+#building {
+  position: relative;
+  height: clamp(200px, 40vh, 300px);
+  width: clamp(200px, 40vh, 300px);
+  margin: 0 auto var(--spacing-lg);
+}
+
+.building-piece {
+  position: absolute;
+  background-color: var(--color-accent);
+  border: 2px solid var(--color-accent-dark);
+  transition: var(--transition-default);
+}
+
+/* Individual House Parts */
+.house-body {
+  width: 200px;
+  height: 150px;
+  bottom: 0;
+  left: 50px;
+}
+
+.roof {
+  width: 0;
+  height: 0;
+  border-left: 120px solid transparent;
+  border-right: 120px solid transparent;
+  border-bottom: 80px solid var(--color-accent);
+  bottom: 150px;
+  left: 30px;
+  background-color: #34495e;
+  border-color: #2c3e50;
+}
+
+.chimney {
+  width: 30px;
+  height: 60px;
+  bottom: 200px;
+  right: 70px;
+}
+
+.window {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-primary);
+  border-color: var(--color-primary-dark);
+}
+
+.window-left {
+  bottom: 80px;
+  left: 80px;
+}
+
+.window-right {
+  bottom: 80px;
+  right: 80px;
+}
+
+.door {
+  width: 50px;
+  height: 80px;
+  bottom: 0;
+  left: 125px;
+  background-color: #8b4513;
+  border-color: #6b3410;
+}
+
+/* ==========================================================================
+    Game Interface Elements
+    Styles for word display and interactive elements
+     ========================================================================== */
+/* Word Display */
+#word {
+  font-size: var(--font-size-lg);
+  letter-spacing: clamp(4px, 1vw, 8px);
+  margin-bottom: var(--spacing-md);
+  min-height: 40px;
+  padding: 0 10px;
+  word-wrap: break-word;
+}
+
+/* ==========================================================================
+    Virtual Keyboard
+    Responsive keyboard layout that works on all screen sizes
+     ========================================================================== */
+.keyboard-wrapper {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-lg);
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  gap: calc(var(--spacing-xs) / 2);
+  width: 100%;
+}
+
+/* Row offsets for staggered keyboard layout */
+.row-offset-half {
+  padding-left: calc(var(--spacing-xs) * 2);
+}
+
+.row-offset-full {
+  padding-left: calc(var(--spacing-xs) * 4);
+}
+
+/* Individual Key Styling */
+.key {
+  flex: 1;
+  min-width: 0;
+  aspect-ratio: 1;
+  max-width: min(45px, calc(100vw / 12));
+  height: auto;
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-keyboard);
+  color: white;
+  font-size: clamp(0.875rem, 2.5vw, 1.25rem);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  padding: 0;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.key.used {
+  background-color: var(--color-keyboard-disabled);
+  cursor: not-allowed;
+  transform: none;
+  opacity: 0.7;
+  box-shadow: none;
+}
+
+/* ==========================================================================
+    Modal Styles
+    Styles for pop-up dialogs like the help modal
+     ========================================================================== */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: var(--border-radius-md);
+  max-width: 500px;
+  margin: 100px auto;
+  position: relative;
+}
+
+.modal-content h3 {
+  margin-bottom: 15px;
+  color: var(--color-text);
+}
+
+.modal-content p,
+.modal-content ul {
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.modal-content ul {
+  padding-left: 20px;
+}
+
+#closeHelp {
+  background-color: var(--color-help);
+  color: white;
+  padding: 10px 20px;
+  border-radius: var(--border-radius-md);
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+#closeHelp:hover {
+  background-color: var(--color-help-dark);
+  transform: translateY(-2px);
+}
+
+/* Container for version information */
+.version-info {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Version number heading */
+.version-info h4 {
+  color: var(--color-text);
+  margin-bottom: 10px;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+/* Changelog section heading */
+.changelog h5 {
+  color: var(--color-text-light);
+  margin: 10px 0;
+  font-size: calc(var(--font-size-sm) * 0.9);
+  font-weight: 600;
+}
+
+/* Changelog list styling */
+.changelog ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 15px;
+}
+
+/* Nested changelog lists */
+.changelog ul ul {
+  padding-left: 20px;
+  margin: 5px 0 10px;
+  border-left: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Changelog list items */
+.changelog li {
+  margin-bottom: 8px;
+  font-size: calc(var(--font-size-sm) * 0.9);
+  line-height: 1.4;
+}
+
+/* Version numbers in changelog */
+.changelog li strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .version-info {
+    margin-top: 15px;
+    padding-top: 15px;
+  }
+
+  .changelog ul ul {
+    padding-left: 15px;
+  }
+
+  .changelog li {
+    font-size: calc(var(--font-size-sm) * 0.85);
+  }
+}
+
+/* ==========================================================================
+  Responsive Design
+  Media queries for different screen sizes and interaction types
+   ========================================================================== */
+
+/* Tablet and smaller screens */
+@media (max-width: 768px) {
+  /* Adjust base font size for better readability on tablets */
+  html {
+    font-size: 14px;
+  }
+
+  /* Make instructions panel wider on tablets */
+  .instructions {
+    width: 95%;
+  }
+
+  /* Adjust building size for tablet screens */
+  #building {
+    transform: scale(0.9);
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 480px) {
+  /* Optimize container spacing for mobile */
+  .container {
+    padding: 10px;
+    width: 95%;
+  }
+
+  /* Stack game controls vertically on mobile */
+  .game-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Make buttons full width on mobile */
+  button,
+  select {
+    width: 100%;
+    max-width: none;
+  }
+
+  /* Stack game stats vertically on mobile */
+  .game-stats {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Mobile keyboard optimizations */
+  .keyboard-wrapper {
+    padding: var(--spacing-xs);
+  }
+
+  .keyboard-row {
+    gap: calc(var(--spacing-xs) / 3);
+  }
+
+  .key {
+    font-size: clamp(0.75rem, 4vw, 1rem);
+  }
+
+  /* Adjust keyboard row offsets for mobile */
+  .row-offset-half {
+    padding-left: calc(var(--spacing-xs));
+  }
+
+  .row-offset-full {
+    padding-left: calc(var(--spacing-xs) * 2);
+  }
+
+  /* Scale down building for mobile screens */
+  #building {
+    transform: scale(0.8);
+  }
+}
+
+/* Extra small mobile screens */
+@media (max-width: 360px) {
+  /* Further optimize for very small screens */
+  .container {
+    padding: 5px;
+  }
+
+  /* Adjust font sizes for very small screens */
+  h1 {
+    font-size: var(--font-size-lg);
+  }
+
+  h2 {
+    font-size: var(--font-size-md);
+  }
+
+  /* Minimize keyboard spacing */
+  .keyboard-wrapper {
+    padding: calc(var(--spacing-xs) / 2);
+  }
+
+  .key {
+    font-size: 0.75rem;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: hover) {
+  /* Styles for devices with hover capability (mouse/touchpad) */
+  .key:hover:not(.used) {
+    transform: translateY(-2px);
+    background-color: var(--color-keyboard-dark);
+  }
+
+  button:hover {
+    transform: translateY(-1px);
+  }
+}
+
+@media (hover: none) {
+  /* Styles for touch devices (no hover capability) */
+  .key:active:not(.used) {
+    transform: scale(0.95);
+    background-color: var(--color-keyboard-dark);
+  }
+
+  button:active {
+    transform: scale(0.98);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --color-keyboard: #000000;
+    --color-keyboard-dark: #333333;
+    --color-text: #000000;
+    --color-background: #ffffff;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Print styles for game state documentation */
+@media print {
+  /* Hide interactive elements when printing */
+  .game-controls,
+  #keyboard,
+  #hintBtn,
+  #helpBtn {
+    display: none;
+  }
+
+  /* Optimize colors for printing */
+  body {
+    background: none;
+    color: black;
+  }
+
+  .container {
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+  }
+
+  /* Ensure building is visible in print */
+  #building {
+    border: 1px solid black;
+    margin: 20px auto;
+  }
+
+  /* Optimize text for printing */
+  #word {
+    font-size: 24pt;
+    margin: 20px 0;
+  }
+}
