@@ -8,9 +8,6 @@ What is 7 Days of AI Coding, you ask? It's an opportunity to learn AI coding in 
 
 You can see what I did for each day below 👇
 
-Day1: [AI-Generated Landing Page](https://thebimsider.github.io/7-Days-of-AI-Coding/Day1)   
-
-
-
-
+Day1: [AI-Generated Landing Page](https://thebimsider.github.io/7-Days-of-AI-Coding/Day1) This landing page uses [FormSubmit](https://formsubmit.co/) to handel the subscription, great free and easy option.
+Day2: [Brick by Brick - AI Generated Game](https://thebimsider.github.io/7-Days-of-AI-Coding/Day2)   
 
