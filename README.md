@@ -10,5 +10,7 @@ You can see what I did for each day below 👇
 
 Day1: [AI-Generated Landing Page](https://thebimsider.github.io/7-Days-of-AI-Coding/Day1) This landing page uses [FormSubmit](https://formsubmit.co/) to handle the subscription, great free option.   
 Day2: [Brick by Brick - AI Generated Game](https://thebimsider.github.io/7-Days-of-AI-Coding/Day2) I used Claude to create this Hangman style word game of Buzzwords.   
+Day3: [Brick by Brick V2.0 Now Responsive](https://thebimsider.github.io/7-Days-of-AI-Coding/Day3) I used Claude to improve yesterday's code, and now it's playable on mobile!    
+
 
 
