@@ -11,8 +11,8 @@ You can see what I did for each day below 👇
 Day1: [AI-Generated Landing Page](https://thebimsider.github.io/7-Days-of-AI-Coding/Day1) This landing page uses [FormSubmit](https://formsubmit.co/) to handle the subscription, great free option.   
 Day2: [Brick by Brick - AI Generated Game](https://thebimsider.github.io/7-Days-of-AI-Coding/Day2) I used Claude to create this Hangman style word game of Buzzwords.   
 Day3: [Brick by Brick V2.0 Now Responsive](https://thebimsider.github.io/7-Days-of-AI-Coding/Day3) Used Claude to improve yesterday's code, now playable on mobile!    
-Day4-a: [Pomodoro timer - Artifact](https://claude.site/artifacts/5ca0a1ab-0767-4078-b2c7-4b181d5528ca) I used Claude to make a Pomodoro timer and publish as Artifact   
-Day4-b: [Pomodoro timer - GitHub Pages](https://thebimsider.github.io/7-Days-of-AI-Coding/Day4) Same Pomodoro timer app from Claude but GitHub Pages version   
+Day4-a: [Pomodoro Timer - Artifact](https://claude.site/artifacts/5ca0a1ab-0767-4078-b2c7-4b181d5528ca) I used Claude to make a Pomodoro timer and publish as Artifact   
+Day4-b: [Pomodoro Timer - GitHub Pages](https://thebimsider.github.io/7-Days-of-AI-Coding/Day4) Same Pomodoro timer app from Claude but GitHub Pages version   
 
 
 
