@@ -14,8 +14,6 @@ Day3: [Brick by Brick V2.0 Now Responsive](https://thebimsider.github.io/7-Days-
 Day4-a: [Pomodoro Timer - Artifact](https://claude.site/artifacts/5ca0a1ab-0767-4078-b2c7-4b181d5528ca) I used Claude to make a Pomodoro timer and publish as Artifact   
 Day4-b: [Pomodoro Timer - GitHub Pages](https://thebimsider.github.io/7-Days-of-AI-Coding/Day4) Same Pomodoro timer app from Claude but GitHub Pages version   
 Day5: [The Sticker Shop -Day 1](https://v0-tbs-sticker-store-gx6rza.vercel.app/) I used [V0](https://v0.dev/) to create a Sticker Shop with [Stripe](https://stripe.com/en-ca) enabled payment    
-
-
-
+Day6: [The Sticker Shop -Day 2](https://v0-tbs-sticker-store-6iwztt.vercel.app/) Today we added sort, zoom, checkout, footer and to our sticker shop!   
 
 
