@@ -15,5 +15,5 @@ Day4-a: [Pomodoro Timer - Artifact](https://claude.site/artifacts/5ca0a1ab-0767-
 Day4-b: [Pomodoro Timer - GitHub Pages](https://thebimsider.github.io/7-Days-of-AI-Coding/Day4) Same Pomodoro timer app from Claude but GitHub Pages version   
 Day5: [The Sticker Shop -Day 1](https://v0-tbs-sticker-store-gx6rza.vercel.app/) I used [V0](https://v0.dev/) to create a Sticker Shop with [Stripe](https://stripe.com/en-ca) enabled payment    
 Day6: [The Sticker Shop -Day 2](https://v0-tbs-sticker-store-6iwztt.vercel.app/) Today we added sort, zoom, checkout, a footer & more to our sticker shop!   
-
+Day7: [Dark Mode Chrome Extension](https://thebimsider.github.io/7-Days-of-AI-Coding/Day7) Used [Cursor](https://www.cursor.com/) an AI power IDE to make a working Dark Mode Chrome extension    
 
