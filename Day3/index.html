@@ -17,7 +17,6 @@
     <title>Brick by Brick</title>
 
     <!-- CSS loading optimization: Preload the stylesheet -->
-    <link rel="preload" href="styles.css" as="style" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -35,8 +34,9 @@
             Provides basic rules and gameplay information -->
       <div class="instructions" aria-label="Game instructions">
         <p>
-          Guess industry buzzwords one letter at a time. But beware - 6 wrong
-          guesses will complete your house and end the game!
+          Read a clue, then try to guess industry buzzwords one letter at a
+          time. But beware - 6 wrong guesses will complete your house and end
+          the game!
         </p>
       </div>
 
@@ -77,6 +77,14 @@
         <!-- Word Display: Shows current word with revealed letters -->
         <div id="word" aria-label="Word to guess" role="status"></div>
 
+        <!-- Clue Display: Shows the meaning of the current word -->
+        <div
+          id="clue"
+          class="clue"
+          aria-label="Clue for the word"
+          role="status"
+        ></div>
+
         <!-- Guessed Letters Display: Shows all attempted letters -->
         <div id="guesses" aria-label="Letters guessed"></div>
       </div>
@@ -104,8 +112,8 @@
           <div class="help-content">
             <!-- Game Rules -->
             <p>
-              1. Guess BIM, AECO, or AI buzzwords one letter at a time. Solve
-              the word before the house is fully built!
+              1. Read the clue, then guess BIM, AECO, or AI buzzwords one letter
+              at a time. Solve the word before the house is fully built!
             </p>
             <p>
               2. Each wrong guess adds a piece to your house. After six pieces,
@@ -128,12 +136,44 @@
 
             <!-- Version Information -->
             <div class="version-info">
-              <h4>Version 2.0</h4>
-              <div class="changelog">
-                <h5>Changelog:</h5>
+              <h4>Version 3.0</h4>
+              <button
+                class="changelog-toggle"
+                aria-expanded="false"
+                aria-controls="changelogContent"
+              >
+                <span>View Changelog</span>
+                <svg
+                  class="chevron-down"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                >
+                  <path
+                    d="M7 10l5 5 5-5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </button>
+              <div id="changelogContent" class="changelog" hidden>
                 <ul>
                   <li>
-                    <strong>Version 2.0</strong> (Current)
+                    <strong>Version 3.0</strong> (Current)
+                    <ul>
+                      <li>Added smart clue system for buzzwords</li>
+                      <li>Improved hint descriptions to be more engaging</li>
+                      <li>
+                        Enhanced gameplay with cryptic clues instead of direct
+                        answers
+                      </li>
+                      <li>Updated word list with better descriptions</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <strong>Version 2.0</strong>
                     <ul>
                       <li>
                         Optimized for play on all platforms (responsive design)

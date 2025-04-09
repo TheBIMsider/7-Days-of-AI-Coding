@@ -41,46 +41,46 @@ const GAME_CONFIG = {
  */
 const WORD_LISTS = {
   easy: [
-    'BIM', // Building Information Modeling
-    'LOD', // Level of Detail/Development
-    'LOI', // Level of Information
-    'CAD', // Computer-Aided Design
-    'CDE', // Common Data Environment
-    'IFC', // Industry Foundation Classes
-    'GIS', // Geographic Information System
-    'API', // Application Programming Interface
-    'LLM', // Large Language Model
-    'GPT', // Generative Pre-trained Transformer
-    'AGI', // Artificial General Intelligence
-    'OCR', // Optical Character Recognition
+    { word: 'BIM', meaning: 'Digital construction blueprint on steroids' },
+    { word: 'LOD', meaning: 'How much detail you want to see' },
+    { word: 'LOI', meaning: 'Data richness indicator' },
+    { word: 'CAD', meaning: 'Drawing with computers, not pencils' },
+    { word: 'CDE', meaning: 'Where project data lives and breathes' },
+    { word: 'IFC', meaning: 'Universal language for building data' },
+    { word: 'GIS', meaning: 'Maps that know everything' },
+    { word: 'API', meaning: 'Digital handshake between programs' },
+    { word: 'LLM', meaning: 'AI that writes like a human' },
+    { word: 'GPT', meaning: "ChatGPT's family name" },
+    { word: 'AGI', meaning: 'When machines become as smart as us' },
+    { word: 'OCR', meaning: 'Turns pictures of text into actual text' },
   ],
   medium: [
-    'REVIT', // Popular BIM software
-    'ROBOT', // Structural analysis software
-    'CLOUD', // Cloud computing
-    'UNITY', // Game/visualization engine
-    'SCOPE', // Project scope
-    'RHINO', // 3D modeling software
-    'AGILE', // Project management methodology
-    'LEGACY', // Legacy systems
-    'NEURAL', // Neural networks
-    'TENSOR', // Tensors in machine learning
-    'CLAUDE', // AI assistant
-    'AIAGENT', // AI agent systems
+    { word: 'REVIT', meaning: "Autodesk's building design powerhouse" },
+    { word: 'ROBOT', meaning: 'Crunches numbers for structures' },
+    { word: 'CLOUD', meaning: "Your data's home in the sky" },
+    { word: 'UNITY', meaning: 'Makes virtual worlds come alive' },
+    { word: 'SCOPE', meaning: 'Project boundaries and goals' },
+    { word: 'RHINO', meaning: '3D modeling beast' },
+    { word: 'AGILE', meaning: 'Flexible project management style' },
+    { word: 'LEGACY', meaning: 'Old but still running' },
+    { word: 'NEURAL', meaning: 'Brain-inspired computing' },
+    { word: 'TENSOR', meaning: 'Math that powers AI' },
+    { word: 'CLAUDE', meaning: "Anthropic's smart assistant" },
+    { word: 'AIAGENT', meaning: 'Software that thinks for itself' },
   ],
   hard: [
-    'DIGITALTWIN', // Digital representation of physical asset
-    'BLOCKCHAIN', // Distributed ledger technology
-    'AUTOMATION', // Process automation
-    'PARAMETRIC', // Parametric design
-    'ALGORITHM', // Algorithmic design
-    'METAVERSE', // Virtual world concept
-    'LIFECYCLE', // Building lifecycle
-    'TOPOLOGY', // Topological optimization
-    'FRAMEWORK', // Software framework
-    'DEEPLEARNING', // Deep learning AI
-    'PROMPTING', // AI prompt engineering
-    'COMPUTERVISION', // Computer vision technology
+    { word: 'DIGITALTWIN', meaning: 'Virtual clone of real things' },
+    { word: 'BLOCKCHAIN', meaning: 'Unbreakable digital ledger' },
+    { word: 'AUTOMATION', meaning: 'Let machines do the work' },
+    { word: 'PARAMETRIC', meaning: 'Design that changes with numbers' },
+    { word: 'ALGORITHM', meaning: 'Step-by-step problem solver' },
+    { word: 'METAVERSE', meaning: 'Digital universe you can visit' },
+    { word: 'LIFECYCLE', meaning: 'From cradle to grave' },
+    { word: 'TOPOLOGY', meaning: 'Shape optimization magic' },
+    { word: 'FRAMEWORK', meaning: 'Building blocks for coding' },
+    { word: 'DEEPLEARNING', meaning: 'AI that learns by example' },
+    { word: 'PROMPTING', meaning: 'The art of talking to AI' },
+    { word: 'COMPUTERVISION', meaning: 'Machines that can see' },
   ],
 };
 
@@ -110,6 +110,7 @@ class JargonJenga {
     );
     this.lives = GAME_CONFIG.MAX_LIVES;
     this.currentWord = '';
+    this.currentMeaning = '';
     this.guessedLetters = new Set();
     this.difficulty = 'easy';
 
@@ -133,6 +134,7 @@ class JargonJenga {
       highScoreSpan: 'highScore', // High score display
       livesSpan: 'lives', // Remaining lives display
       helpModal: 'helpModal', // Help information modal
+      clueDiv: 'clue', // Displays the clue for the current word
     };
 
     // Get and validate each element
@@ -145,6 +147,19 @@ class JargonJenga {
 
     // Create the virtual keyboard
     this.createKeyboard();
+
+    // Initialize changelog toggle
+    const changelogToggle = document.querySelector('.changelog-toggle');
+    const changelogContent = document.getElementById('changelogContent');
+
+    if (changelogToggle && changelogContent) {
+      changelogToggle.addEventListener('click', () => {
+        const isExpanded =
+          changelogToggle.getAttribute('aria-expanded') === 'true';
+        changelogToggle.setAttribute('aria-expanded', !isExpanded);
+        changelogContent.hidden = isExpanded;
+      });
+    }
   }
 
   /**
@@ -238,7 +253,9 @@ class JargonJenga {
   startNewGame() {
     this.lives = GAME_CONFIG.MAX_LIVES;
     this.guessedLetters.clear();
-    this.currentWord = this.getRandomWord();
+    const wordData = this.getRandomWord();
+    this.currentWord = wordData.word;
+    this.currentMeaning = wordData.meaning;
     this.updateDisplay();
     this.resetKeyboard();
     this.buildBuilding();
@@ -246,7 +263,7 @@ class JargonJenga {
 
   /**
    * Get a random word based on current difficulty
-   * @returns {string} The selected word
+   * @returns {Object} The selected word and its meaning
    */
   getRandomWord() {
     const wordList = WORD_LISTS[this.difficulty];
@@ -338,6 +355,9 @@ class JargonJenga {
       .map((letter) => (this.guessedLetters.has(letter) ? letter : '_'))
       .join(' ');
 
+    // Update clue display
+    this.clueDiv.textContent = `Clue: ${this.currentMeaning}`;
+
     // Update game statistics
     this.livesSpan.textContent = this.lives.toString();
     this.scoreSpan.textContent = this.score.toString();
@@ -348,6 +368,7 @@ class JargonJenga {
       'aria-label',
       `Word to guess: ${this.wordDiv.textContent}`
     );
+    this.clueDiv.setAttribute('aria-label', `Clue: ${this.currentMeaning}`);
   }
 
   /**
